@@ -2,3 +2,5 @@ target
 *.iml
 node*
 .idea
+*.db
+log
