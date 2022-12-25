@@ -1,0 +1,26 @@
+{:min-bb-version "0.9.162"
+ :deps {failjure/failjure {:mvn/version "2.2.0"}}
+ :tasks {:requires ([babashka.fs :as fs]
+                    [babashka.curl :as curl]
+                    [babashka.tasks :refer [shell]]
+                    [clojure.java.io :as io])
+         node-install {:doc "Node install"
+                       :task (let [
+                                   node-version            "v18.12.1"
+                                   node-arch               "linux-x64"
+                                   node-install-dir        (str "node-" node-version "-" node-arch)
+                                   node-archive-name       (str node-install-dir ".tar.xz")
+                                   node-url                (str "https://nodejs.org/dist/" node-version "/" node-archive-name)]
+                               (do
+                                 (println (str "Fetching [" node-url "] (please wait, this might take a while) ..."))
+                                 (io/copy (:body (curl/get node-url {:as :bytes})) (io/file node-archive-name))
+                                 (println (str "Unpacking [" node-archive-name "]..."))
+                                 (shell {:dir "."} (str "tar -xvf " node-archive-name))
+                                 (println (str "Create symbolic link [" node-install-dir "]..."))
+                                 (shell {:dir "."} (str "ln -s " node-install-dir " node"))
+                                 (println (str "Done."))
+                                 ))}
+         npm-install {:doc "Npm install"
+                      :task (shell {:dir "."} "npm install")}
+         }
+ }

@@ -1,0 +1,7 @@
+$ lein new luminus guestbook --template-version 4.47 -- +h2 +http-kit 
+Retrieving luminus/lein-template/4.47/lein-template-4.47.pom from clojars
+Retrieving selmer/selmer/1.12.55/selmer-1.12.55.pom from clojars
+Retrieving luminus/lein-template/4.47/lein-template-4.47.jar from clojars
+Retrieving selmer/selmer/1.12.55/selmer-1.12.55.jar from clojars
+Generating a Luminus project.
+

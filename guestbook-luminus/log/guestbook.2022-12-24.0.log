@@ -1,0 +1,156 @@
+2022-12-24 15:28:09,479 [worker-2] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 15:28:09,482 [worker-2] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 15:55:50,062 [worker-1] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 15:55:50,062 [worker-1] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 15:56:25,944 [worker-2] INFO  guestbook.routes.services - request [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 15:56:25,944 [worker-2] INFO  guestbook.routes.services - id:  #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" 
+2022-12-24 16:08:04,325 [worker-4] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:08:04,326 [worker-4] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:08:13,232 [worker-3] INFO  guestbook.routes.services - request [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:08:13,232 [worker-3] INFO  guestbook.routes.services - id:  #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" 
+2022-12-24 16:08:21,070 [worker-4] INFO  guestbook.routes.services - request [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:09:47,378 [worker-1] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:09:47,378 [worker-1] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:09:55,456 [worker-4] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:12:14,098 [worker-1] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:12:14,098 [worker-1] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:12:18,532 [worker-4] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:12:42,952 [worker-1] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:12:42,952 [worker-1] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:12:48,996 [worker-1] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:14:03,749 [worker-2] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:14:03,749 [worker-2] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:14:09,251 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:14:09,252 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" ] 
+2022-12-24 16:14:39,694 [worker-3] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:14:39,694 [worker-3] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:14:45,387 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:14:45,387 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" ] 
+2022-12-24 16:14:49,578 [worker-3] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:14:49,578 [worker-3] INFO  guestbook.routes.services - delete-message! id [ #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" ] 
+2022-12-24 16:14:54,091 [worker-4] INFO  guestbook.routes.services - delete-message! req [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:14:54,091 [worker-4] INFO  guestbook.routes.services - delete-message! id [ #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" ] 
+2022-12-24 16:15:32,640 [worker-1] INFO  guestbook.routes.services - request [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:15:32,641 [worker-1] INFO  guestbook.routes.services - id:  #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" 
+2022-12-24 16:16:42,496 [worker-3] INFO  guestbook.routes.services - request [ {:id 868ceacf-e45f-4dd4-8fb4-5da845c8a148} ] 
+2022-12-24 16:16:42,497 [worker-3] INFO  guestbook.routes.services - id:  #uuid "868ceacf-e45f-4dd4-8fb4-5da845c8a148" 
+2022-12-24 16:21:47,450 [worker-4] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:21:47,451 [worker-4] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:22:04,832 [worker-4] INFO  guestbook.routes.services - request [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:22:04,832 [worker-4] INFO  guestbook.routes.services - id:  #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" 
+2022-12-24 16:22:17,253 [worker-1] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:22:17,254 [worker-1] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:22:27,448 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:22:27,449 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:33:47,983 [worker-3] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:33:47,983 [worker-3] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:33:48,044 [worker-3] INFO  guestbook.routes.services - request [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:33:48,044 [worker-3] INFO  guestbook.routes.services - id:  #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" 
+2022-12-24 16:34:28,083 [worker-4] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:34:28,083 [worker-4] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:34:36,286 [worker-3] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:34:36,286 [worker-3] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:35:30,290 [worker-4] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:35:30,290 [worker-4] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:35:30,360 [worker-4] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:35:30,360 [worker-4] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:36:46,073 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:36:46,074 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:36:54,186 [worker-3] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:36:54,186 [worker-3] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:41:19,024 [worker-1] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:41:19,024 [worker-1] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:42:22,203 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id 12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5} ] 
+2022-12-24 16:42:22,203 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "12fc87f8-f937-49fd-8fae-3c9c0fc2ffb5" ] 
+2022-12-24 16:45:27,564 [nREPL-session-b92fd418-ddb2-4ccd-9c0d-b678f68da490] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:45:27,886 [nREPL-session-b92fd418-ddb2-4ccd-9c0d-b678f68da490] INFO  luminus.http-server - starting HTTP server on port 3000 
+2022-12-24 16:45:49,565 [worker-1] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e"} ] 
+2022-12-24 16:45:49,565 [worker-1] WARN  guestbook.routes.services - Failed to convert message ID!UUID string too large 
+2022-12-24 16:45:58,947 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:45:58,947 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:46:01,894 [worker-3] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:46:01,894 [worker-3] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:46:01,895 [worker-3] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:46:54,836 [worker-4] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:46:54,837 [worker-4] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:47:02,566 [worker-3] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:47:02,567 [worker-3] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:47:02,567 [worker-3] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:47:33,571 [worker-4] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:47:33,571 [worker-4] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:47:33,729 [worker-4] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:47:33,730 [worker-4] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:47:33,734 [worker-4] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:48:27,930 [worker-1] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:48:27,931 [worker-1] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:48:28,065 [worker-1] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:48:28,065 [worker-1] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:48:28,066 [worker-1] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:48:57,342 [worker-1] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:48:57,342 [worker-1] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:48:57,343 [worker-1] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:49:22,564 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:49:22,565 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:49:22,565 [worker-2] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:56:25,228 [worker-3] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:56:25,229 [worker-3] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:56:34,884 [worker-2] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:56:34,885 [worker-2] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:56:34,885 [worker-2] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:57:16,676 [worker-3] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:57:16,677 [worker-3] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:57:16,783 [worker-3] INFO  guestbook.routes.services - delete-message! req [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:57:16,785 [worker-3] INFO  guestbook.routes.services - delete-message! id [ #uuid "dee5adeb-590e-48db-a919-18223181119e" ] 
+2022-12-24 16:57:16,786 [worker-3] WARN  guestbook.routes.services - Attempt to delete non-existing message with id #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:58:20,763 [worker-4] INFO  guestbook.routes.services - request [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:58:20,764 [worker-4] INFO  guestbook.routes.services - id:  #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:58:20,765 [worker-4] WARN  guestbook.routes.services - not found:  #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:58:51,726 [worker-1] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 16:58:51,727 [worker-1] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 16:58:51,844 [worker-1] INFO  guestbook.routes.services - request [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 16:58:51,844 [worker-1] INFO  guestbook.routes.services - id:  #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 16:58:51,846 [worker-1] WARN  guestbook.routes.services - not found:  #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 17:01:07,804 [worker-2] INFO  guestbook.env - 
+-=[guestbook has shut down successfully]=- 
+2022-12-24 17:01:07,804 [worker-2] INFO  guestbook.env - 
+-=[guestbook started successfully using the development profile]=- 
+2022-12-24 17:01:07,901 [worker-2] INFO  guestbook.routes.services - request [ {:id dee5adeb-590e-48db-a919-18223181119e} ] 
+2022-12-24 17:01:07,901 [worker-2] INFO  guestbook.routes.services - id:  #uuid "dee5adeb-590e-48db-a919-18223181119e" 
+2022-12-24 17:01:07,902 [worker-2] WARN  guestbook.routes.services - not found:  #uuid "dee5adeb-590e-48db-a919-18223181119e" 

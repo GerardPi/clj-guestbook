@@ -1,0 +1,5 @@
+CREATE TABLE guestbook
+(id UUID PRIMARY KEY NOT NULL,
+name VARCHAR(30),
+message VARCHAR(200),
+timestamp TIMESTAMP NOT NULL);

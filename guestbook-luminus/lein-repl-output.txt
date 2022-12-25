@@ -1,0 +1,20 @@
+Requires Java 11 or higher
+
+
+$ lein repl
+nREPL server started on port 39985 on host 127.0.0.1 - nrepl://127.0.0.1:39985
+WARNING: update-vals already refers to: #'clojure.core/update-vals in namespace: cider.nrepl.inlined-deps.orchard.v0v7v1.orchard.misc, being replaced by: #'cider.nrepl.inlined-deps.orchard.v0v7v1.orchard.misc/update-vals
+WARNING: update-keys already refers to: #'clojure.core/update-keys in namespace: cider.nrepl.inlined-deps.orchard.v0v7v1.orchard.misc, being replaced by: #'cider.nrepl.inlined-deps.orchard.v0v7v1.orchard.misc/update-keys
+REPL-y 0.5.1, nREPL 1.0.0
+Clojure 1.11.1
+OpenJDK 64-Bit Server VM 11.0.17+8-post-Ubuntu-1ubuntu220.04
+    Docs: (doc function-name-here)
+          (find-doc "part-of-name-here")
+  Source: (source function-name-here)
+ Javadoc: (javadoc java-object-or-class-here)
+    Exit: Control+D or (exit) or (quit)
+ Results: Stored in vars *1, *2, *3, an exception in *e
+
+user=> 
+
+
