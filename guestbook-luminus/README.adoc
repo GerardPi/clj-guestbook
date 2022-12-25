@@ -1,0 +1,49 @@
+= Guestbook Liminus
+:numbered:
+:toc:
+
+== Introduction
+
+The software in this repository was build using the book
+"Web Development with Clojure" 3rd edition written by
+Dmitri Sotnikov and Scot Brown.
+
+== Prerequisites
+
+Please make sure that you have Leiningen, Clojure and Babashka available:
+
+----
+$ lein -version
+Leiningen 2.9.10 on Java 17.0.5 OpenJDK 64-Bit Server VM
+
+$ clj --version
+Clojure CLI version 1.11.1.1105
+
+$ bb --version
+babashka v0.9.162
+----
+
+== Versions used to build this
+
+Generated with Leiningen. See output below
+
+----
+include::new-output.txt[]
+----
+
+== Running
+
+To start a web server for the application, run:
+
+    # Install node
+    bb node-install
+    # Install JavaScript packages
+    bb npm-install
+    # Run backend
+    lein run
+    # Run frontend
+    lein cljsbuild auto
+
+== License
+
+See LICENCE
