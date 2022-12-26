@@ -10,6 +10,14 @@
                  [cprop "0.1.19"]
                  [expound "0.9.0"]
                  [funcool/struct "1.4.0"]
+                 ;;
+                 ;; Upgrade transitive dep of funcool/struct: funcool/cuerdas
+                 ;; from 2.2.0 to 2.2.1
+                 ;; in an attempt to fix the followin warning:
+                 ;; parse-double already refers to: cljs.core/parse-double being replaced by: cuerdas.core/parse-double
+                 ;; which, sadly, did not fix it.
+                 [funcool/cuerdas "2.2.1"]
+                 ;;
                  [json-html "0.4.7"]
                  [luminus-http-kit "0.2.0"]
                  [luminus-migrations "0.7.5"]
@@ -27,8 +35,8 @@
                  ;; reagent 1.0.0 has transitive dependencies for cljsjs/react and react-dom,
                  ;; the newer version apparently does not: specify them here explicitly
                  [reagent "1.1.1"]
-                 [cljsjs/react "18.2.0-1"]
-                 [cljsjs/react-dom "18.2.0-1"]
+;;                 [cljsjs/react "18.2.0-1"]
+;;                 [cljsjs/react-dom "18.2.0-1"]
                  [cljs-ajax "0.8.4"]
                  [re-frame "1.3.0"]
                  [org.clojure/clojure "1.11.1"]
@@ -40,18 +48,23 @@
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.9.6"]
                  [ring/ring-defaults "0.3.4"]
-                 [selmer "1.12.55"]]
+                 [selmer "1.12.55"]
+                 ;; After migration from cljs-build to shadow-cljs
+                 [com.google.javascript/closure-compiler-unshaded "v20221102" :scope "provided"]
+                 [org.clojure/google-closure-library "0.0-20191016-6ae1f72f" :scope "provided"]
+                 [thheller/shadow-cljs "2.20.16" :scope "provided"]
+                 ]
 
 
   :min-lein-version "2.0.0"
 
-  :source-paths ["src/clj" "src/cljc"]
+  :source-paths ["src/clj" "src/cljc" "src/cljs"]
   :test-paths ["test/clj"]
   :resource-paths ["resources" "target/cljsbuild"]
   :target-path "target/%s/"
   :main ^:skip-aot guestbook.core
 
-  :plugins [[lein-cljsbuild "1.1.8"]]
+  :plugins []
 
   :profiles
   {:uberjar       {:omit-source    true
@@ -64,17 +77,19 @@
    :test          [:project/dev :project/test :profiles/test]
 
    :project/dev   {:jvm-opts       ["-Dconf=dev-config.edn"]
-                   :dependencies   [[org.clojure/tools.namespace "1.3.0"]
+                   :dependencies   [[binaryage/devtools "1.0.2"] ;; cljs-devtools
+                                    [org.clojure/tools.namespace "1.3.0"]
                                     [pjstadig/humane-test-output "0.11.0"]
                                     [prone "2021-04-23"]
                                     [ring/ring-devel "1.9.6"]
                                     [ring/ring-mock "0.4.0"]
+                                    [day8.re-frame/re-frame-10x "1.5.0"]
                                     ]
                    :plugins        [[com.jakemccrary/lein-test-refresh "0.24.1"]
                                     [jonase/eastwood "1.2.4"]
                                     [cider/cider-nrepl "0.26.0"]]
 
-                   :source-paths   ["env/dev/clj"]
+                   :source-paths   ["env/dev/clj" "env/dev/cljc" "env/dev/cljs"]
                    :resource-paths ["env/dev/resources"]
                    :repl-options   {:init-ns user
                                     :timeout 120000}
@@ -83,18 +98,4 @@
    :project/test  {:jvm-opts       ["-Dconf=test-config.edn"]
                    :resource-paths ["env/test/resources"]}
    :profiles/dev  {}
-   :profiles/test {}}
-  :cljsbuild {:builds
-              {:app {:source-paths ["src/cljs" "src/cljc"]
-                     :compiler     {:output-to     "target/cljsbuild/public/js/app.js"
-                                    :output-dir    "target/cljsbuild/public/js/out"
-                                    :main          "guestbook.core"
-                                    :asset-path    "/js/out"
-                                    :optimizations :none
-                                    :source-map    true
-                                    :pretty-print  true}}}}
-  :clean-targets
-  ^{:protect false}
-  [:target-path
-   [:cljsbuild :builds :app :compiler :output-dir]
-   [:cljsbuild :builds :app :compiler :output-to]])
+   :profiles/test {}})

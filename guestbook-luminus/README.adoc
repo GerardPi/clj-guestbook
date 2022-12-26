@@ -1,4 +1,4 @@
-= Guestbook Liminus
+= Guestbook Luminus
 :numbered:
 :toc:
 
@@ -10,7 +10,8 @@ Dmitri Sotnikov and Scot Brown.
 
 == Prerequisites
 
-Please make sure that you have Leiningen, Clojure and Babashka available:
+Please make sure that you have Leiningen, Clojure and Babashka available.
+Babashka was introduced to make building (setting up node and installing js stuff easier).
 
 ----
 $ lein -version

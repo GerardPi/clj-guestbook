@@ -13,12 +13,13 @@
           :start (conman/connect! {:jdbc-url (env :database-url)})
           :stop (conman/disconnect! *db*))
 
+(conman/bind-connection *db* "sql/queries.sql")
+
 (defn sql-timestamp->inst [^Timestamp t]
       (-> t (.toLocalDateTime)
           (.atZone (ZoneId/systemDefault))
           (java-time-api/java-date)))
 
-(conman/bind-connection *db* "sql/queries.sql")
 
 (extend-protocol next.jdbc.result-set/ReadableColumn
   Timestamp

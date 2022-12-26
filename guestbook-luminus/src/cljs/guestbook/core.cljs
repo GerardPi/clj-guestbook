@@ -4,7 +4,6 @@
             [guestbook.validation.message :as message-val]
             [guestbook.messages.forms :as msg-forms]
             [re-frame.core :as rf]
-            [reagent.core :as r]
             [reagent.dom :as dom]))
 
 (defn fetch-x-csrf-token-value-from-document []
@@ -54,7 +53,8 @@
 
 
 (defn post-success-handler [response fields errors]
-  (let [new-message (assoc @fields :timestamp (js/Date.))]
+  (let [new-message (-> @fields (assoc :timestamp (js/Date.))
+                                (update :name str " [CLIENT]"))]
     (.log js/console (str "post success response:" response " new message: " new-message))
     (rf/dispatch [:messages/add new-message])
     (reset! fields nil)
@@ -78,6 +78,7 @@
   (when-let [error (id @errors)]
     [:div.notification.is-danger (string/join error)]))
 
+
 (defn format-date-time [timestamp]
   (let [iso-string (.toISOString timestamp)
         t-index (.indexOf iso-string \T)
@@ -92,12 +93,10 @@
      ^{:key timestamp}
      [:li (format-date-time timestamp)
       [:p message]
-      [:p " - " name]])])
+      [:p "@" name]])])
 
 (defn home []
   (let [messages (rf/subscribe [:messages/list])]
-    (rf/dispatch [:app/initialize])
-    (load-messages-list)
     (fn []
       [:div.content>div.columns.is-centered>div.column.is-two-thirds
        (if @(rf/subscribe [:messages/loading?])
@@ -109,6 +108,19 @@
           [:div.columns>div.column
            [msg-forms/creation-form errors-component submit-message!]]])])))
 
-(dom/render
-  [home]
-  (.getElementById js/document "content"))
+;;
+;; CAUTION: This will (of course :-) ) not work when it says "^:def/after-load"
+;;
+(defn ^:def/after-load mount-components []
+       (rf/clear-subscription-cache!)
+       (.log js/console "Mounting components...")
+       (dom/render [#'home] (.getElementById js/document "content"))
+       (.log js/console "Components Mounted!"))
+
+(defn init! []
+  (.log js/console "Initialize App...")
+  (rf/dispatch [:app/initialize])
+  (load-messages-list)
+  (mount-components))
+
+(.log js/console "guestbook.core enabled!")

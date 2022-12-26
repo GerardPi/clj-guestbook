@@ -5,4 +5,9 @@ node*
 *.db
 log
 .nrepl-port
+.clj-kondo/*
+.shadow-cljs/*
+.idea/*
+deps.txt
+
 
