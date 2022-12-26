@@ -6,7 +6,7 @@
            (java.util UUID)))
 
 (defn message-list []
-  {:messages (vec (db/get-messages))})
+  (db/get-messages))
 
 (defn one-message [id]
   (db/get-message {:id id}))

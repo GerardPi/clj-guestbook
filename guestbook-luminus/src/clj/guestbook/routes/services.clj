@@ -16,28 +16,6 @@
   (:import (java.time LocalDateTime)
            (java.util UUID)))
 
-(defn create-message! []
-  (fn [request]
-    (try
-      (log/info "create-message! parameters [" (-> request :parameters) "]")
-      (let [params (-> request :parameters :body)
-            id (UUID/randomUUID)
-            timestamp (LocalDateTime/now)]
-        (msg/create-message! id timestamp params)
-        (let [url (str "/messages/" id)
-              body {:status :ok}]
-          (response/created url body)))
-      (catch Exception e
-        (let [{id :guestbook/error-id errors :errors} (ex-data e)
-              errorMessage (.getMessage e)]
-          (log/warn "id" id "errors" errors "errorMessage" errorMessage)
-          (case id
-            :validation
-            (response/bad-request {:errors errors})
-            (response/internal-server-error {:errors {:server-error [(str "Failed to create message" (.getMessage e))]}})))))))
-
-
-
 (def message-creation-request-spec {:body {:name string? :message string?}})
 
 (def message-update-request-spec {:path {:id string?}
@@ -67,46 +45,21 @@
    400 {:body map?}
    500 {:errors map?}})
 
-(defn message-list [_]
-  (let [result (response/ok (msg/message-list))]
-    (println "### result " result "##")
-    result))
+(defn message-list []
+  (fn [_]
+    (try
+      (let [messages (msg/message-list)]
+        (println "### messages " messages "##")
+        (response/ok {:messages (vec messages)}))
+      (catch Exception e
+        (let [message (str "Failed to get messages" (.getMessage e))]
+          (log/warn message)
+          (response/internal-server-error {:errors {:server-error [message]}}))))))
 
 (defn body-problem-message-not-found [message-id]
   {:type :message-not-found :message "Could not find a message with the id given"
    :data {:id message-id}})
 
-(defn update-message! []
-  (fn [request]
-    (log/info "update-message! request [" (-> request :parameters :path) "]")
-    (try
-      (let [message-id-str (-> request :parameters :path :id)
-            params (-> request :parameters :body)
-            message-id (UUID/fromString message-id-str)
-            timestamp (LocalDateTime/now)
-            body {:status :ok}]
-        (try
-          (if-let [message (msg/one-message message-id)]
-            (do
-              (msg/update-message! message-id timestamp params)
-              (response/ok body))
-            (do
-              (log/warn "Attempt to delete non-existing message with id" message-id)
-              (response/not-found (body-problem-message-not-found message-id))))
-          (catch Exception e
-            (let [{id :guestbook/error-id errors :errors} (ex-data e)
-                  errorMessage (.getMessage e)]
-              (log/warn "id" id "errors" errors "errorMessage" errorMessage)
-              (case id
-                :validation
-                (response/bad-request {:errors errors})
-                (response/internal-server-error {:errors {:server-error [(str "Failed to update message" (.getMessage e))]}}))))))
-      (catch Exception e
-        (let [{id :guestbook/error-id errors :errors} (ex-data e)
-              message (str "Failed to convert message ID!" (.getMessage e))]
-          (log/warn message errors)
-          (response/bad-request {:errors errors}))
-        ))))
 
 (defn one-message []
   (fn [request]
@@ -155,6 +108,57 @@
           (log/warn message)
           (response/bad-request {:errors {:server-error [message]}}))))))
 
+(defn create-message! []
+  (fn [request]
+    (try
+      (log/info "create-message! parameters [" (-> request :parameters) "]")
+      (let [params (-> request :parameters :body)
+            id (UUID/randomUUID)
+            timestamp (LocalDateTime/now)]
+        (msg/create-message! id timestamp params)
+        (let [url (str "/messages/" id)
+              body {:status :ok}]
+          (response/created url body)))
+      (catch Exception e
+        (let [{id :guestbook/error-id errors :errors} (ex-data e)
+              errorMessage (.getMessage e)]
+          (log/warn "id" id "errors" errors "errorMessage" errorMessage)
+          (case id
+            :validation
+            (response/bad-request {:errors errors})
+            (response/internal-server-error {:errors {:server-error [(str "Failed to create message" (.getMessage e))]}})))))))
+
+(defn update-message! []
+  (fn [request]
+    (log/info "update-message! request [" (-> request :parameters :path) "]")
+    (try
+      (let [message-id-str (-> request :parameters :path :id)
+            params (-> request :parameters :body)
+            message-id (UUID/fromString message-id-str)
+            timestamp (LocalDateTime/now)
+            body {:status :ok}]
+        (try
+          (if-let [message (msg/one-message message-id)]
+            (do
+              (msg/update-message! message-id timestamp params)
+              (response/ok body))
+            (do
+              (log/warn "Attempt to delete non-existing message with id" message-id)
+              (response/not-found (body-problem-message-not-found message-id))))
+          (catch Exception e
+            (let [{id :guestbook/error-id errors :errors} (ex-data e)
+                  errorMessage (.getMessage e)]
+              (log/warn "id" id "errors" errors "errorMessage" errorMessage)
+              (case id
+                :validation
+                (response/bad-request {:errors errors})
+                (response/internal-server-error {:errors {:server-error [(str "Failed to update message" (.getMessage e))]}}))))))
+      (catch Exception e
+        (let [{id :guestbook/error-id errors :errors} (ex-data e)
+              message (str "Failed to convert message ID!" (.getMessage e))]
+          (log/warn message errors)
+          (response/bad-request {:errors errors}))))))
+
 (defn middleware-spec []
   [
    ;; query-params & form-params
@@ -189,10 +193,10 @@
     [""
      {:get  {
              :responses message-list-response-spec
-             :handler   #(message-list %)}
+             :handler   (message-list)}
       :post {
              :parameters message-creation-request-spec
-             :handler    #(create-message! %)
+             :handler    (create-message!)
              :responses  message-creation-response-specs}
       }]
     ["/:id"

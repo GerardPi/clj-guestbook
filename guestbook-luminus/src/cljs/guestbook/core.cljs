@@ -7,8 +7,6 @@
             [reagent.core :as r]
             [reagent.dom :as dom]))
 
-(defn log [message]
-  (.log js/console message))
 (defn fetch-x-csrf-token-value-from-document []
   (.-value (.getElementById js/document "token")))
 
@@ -39,30 +37,31 @@
   (fn [db _]
     (:messages/list db [])))
 
+(rf/reg-event-db
+  :messages/add
+  (fn [db [_ message]]
+    (update db :messages/list conj message)))
+
 (defn messages-get-success-handler [response]
-  (log (str "received response >>" response "<<"))
   (let [messages (:messages response)]
-    (log (str "received messages" messages))
+    (.log js/console "received messages" messages)
     (rf/dispatch [:messages/set messages])))
+
 (defn load-messages-list []
   (GET "/api/messages"
        {:headers headers-for-get
         :handler #(messages-get-success-handler %)}))
 
-(rf/reg-event-db
-  :message/add
-  (fn [db [_ message]]
-    (update db :messages/list conj message)))
 
 (defn post-success-handler [response fields errors]
   (let [new-message (assoc @fields :timestamp (js/Date.))]
-    (log (str "post success response:" response " new message: " new-message))
-    (rf/dispatch [:message/add new-message])
+    (.log js/console (str "post success response:" response " new message: " new-message))
+    (rf/dispatch [:messages/add new-message])
     (reset! fields nil)
     (reset! errors nil)))
 
 (defn post-error-handler [error errors]
-  (log (str error))
+  (.log js/console (str error))
   (reset! errors (-> error :response :errors)))
 
 (defn submit-message! [fields errors]
@@ -82,9 +81,10 @@
 (defn format-date-time [timestamp]
   (let [iso-string (.toISOString timestamp)
         t-index (.indexOf iso-string \T)
+        z-index (.indexOf iso-string \Z)
         date-string (.substring iso-string 0 t-index)
-        time-string (.substring iso-string (+ t-index 1) (- (count iso-string) - 1))]
-    [:time {:date-time iso-string :title iso-string} (str date-string " " time-string)]))
+        time-string (.substring iso-string (+ t-index 1) z-index)]
+    [:time {:date-time iso-string :title (str "Date/time:" iso-string)} (str date-string " " time-string)]))
 
 (defn message-list [messages]
   [:ul.messages

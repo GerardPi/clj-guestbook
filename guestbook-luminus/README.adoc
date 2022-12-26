@@ -35,13 +35,17 @@ include::new-output.txt[]
 
 To start a web server for the application, run:
 
-    # Install node
+    # From the command-line, install node
     bb node-install
-    # Install JavaScript packages
+    # From the command-line, install JavaScript packages
     bb npm-install
-    # Run backend
-    lein run
-    # Run frontend
+    # From the command-line (or from your IDE), run a repl
+    lein repl
+    # In the repl, when running this for the first time, initialize the database
+    (migrate)
+    # Start the back-end from the repl
+    (start)
+    # From the command-line, run frontend
     lein cljsbuild auto
 
 == License
